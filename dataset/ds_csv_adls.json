@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().ds_parm_filename",
+					"value": "@concat('output_',formatDatetime(utcnow(),'dd-MM-yyy'),'.csv.zip')",
 					"type": "Expression"
 				},
 				"folderPath": {
