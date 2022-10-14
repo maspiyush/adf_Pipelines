@@ -143,7 +143,7 @@
 										"type": "Expression"
 									},
 									"ds_parm_filename": {
-										"value": "@pipeline().parameters.param_tgt_directroy",
+										"value": "@concat('output_',formatDatetime(utcnow(),'dd-MM-yyy'),'.csv.zip')",
 										"type": "Expression"
 									}
 								}
