@@ -60,7 +60,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@concat('output_',formatDatetime(utcnow(),'dd-MM-yyy'),'.csv.zip')",
+							"value": "@dataset().ds_parm_filename",
 							"type": "Expression"
 						},
 						"folderPath": {
@@ -111,12 +111,13 @@
 							"sink": {
 								"type": "DelimitedTextSink",
 								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
+									"type": "AzureBlobFSWriteSettings",
+									"copyBehavior": "MergeFiles"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".txt"
+									"fileExtension": ".csv"
 								}
 							},
 							"enableStaging": false,
@@ -201,7 +202,7 @@
 										"type": "Expression"
 									},
 									"ds_parm_filename": {
-										"value": "@concat('output_',formatDatetime(utcnow(),'dd-MM-yyy'),'.csv.zip')",
+										"value": "@pipeline().parameters.param_file_src",
 										"type": "Expression"
 									}
 								}
