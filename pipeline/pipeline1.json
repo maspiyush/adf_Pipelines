@@ -34,7 +34,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
@@ -119,7 +119,7 @@
 								"type": "Expression"
 							},
 							"ds_parm_filename": {
-								"value": "@concat('output_',formatDatetime(utcnow(),'dd-MM-yyy'),'.csv.zip')",
+								"value": "@pipeline().parameters.param_file_src",
 								"type": "Expression"
 							}
 						}
